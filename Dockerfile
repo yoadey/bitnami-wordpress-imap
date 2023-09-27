@@ -1,4 +1,4 @@
-FROM bitnami/wordpress:6.3.1
+FROM bitnami/wordpress:${TAG_NAME:latest}
 
 ## Change user to perform privileged actions
 USER 0
