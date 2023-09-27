@@ -40,6 +40,12 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         run: echo "TAG_NAME=${{ github.ref }}" >> $GITHUB_ENV
 
+      # Required for arm64 compilation
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+        with:
+          platforms: 'arm64'
+
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
